@@ -83,7 +83,7 @@ def SumarizeTextEnglish(text, n_sent=4):
 def main():
 
     st.title('NLP Resume Text')
-    st.header('Resume texts in Portuguese or English.')
+    st.header('Summary texts in Portuguese or English.')
     file  = st.file_uploader('Paste your text!', type = 'txt')
 
     if file is not None:
