@@ -84,12 +84,12 @@ def main():
     st.title('NLP Summary Text')
     st.header('Summary texts in Portuguese or English.')
 
-    uploaded_file  = st.file_uploader('Upload your text!')
+    uploaded_file  = st.text_input()
     if uploaded_file is not None:
-        # To convert to a string based IO:
-        stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
-        # To read file as string:
-        uploaded_file = stringio.read()
+    #     # To convert to a string based IO:
+    #     stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
+    #     # To read file as string:
+    #     uploaded_file = stringio.read()
 
         # Sidebar Menu
         options = ["Select language", "Portuguese", "English"]
