@@ -98,10 +98,12 @@ def main():
         # Choices
         if (menu == "Portuguese"):
             st.header("Portuguese Language. \n This is the summary of your text.")
-            SumarizeTextPortuguese(uploaded_file, n_sent=5)
+            n_sent = st.sidebar.slider('Number of sentences (default is 5).', value = 100)
+            SumarizeTextPortuguese(uploaded_file, n_sent)
 
         if (menu == "English"):
             st.header("English Language. \n \n This is the summary of your text.")
+            n_sent = st.sidebar.slider('Number of sentences (default is 5).', value = 100)
             SumarizeTextEnglish(uploaded_file, n_sent=5)
 
         st.sidebar.title('Hi, everyone!')
