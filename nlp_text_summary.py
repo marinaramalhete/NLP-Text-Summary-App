@@ -32,7 +32,7 @@ def RemoveStopWordsAndPunctInPortuguese(text):
     words = word_tokenize(text.lower())
     return [word for word in words if word not in stopwords_ptbr]
 
-def SumarizeTextPortuguese(text, n_sent=10):
+def SumarizeTextPortuguese(text, n_sent=5):
     words_not_stopwords = RemoveStopWordsAndPunctInPortuguese(text)
     sentences = sent_tokenize(text)
     frequency = FreqDist(words_not_stopwords)
@@ -59,7 +59,7 @@ def RemoveStopWordsAndPunctInEnglish(text):
     words = word_tokenize(text.lower())
     return [word for word in words if word not in stopwords_en]
 
-def SumarizeTextEnglish(text, n_sent=10):
+def SumarizeTextEnglish(text, n_sent=5):
     words_not_stopwords = RemoveStopWordsAndPunctInEnglish(text)
     sentences = sent_tokenize(text)
     frequency = FreqDist(words_not_stopwords)
@@ -98,11 +98,11 @@ def main():
         # Choices
         if (menu == "Portuguese"):
             st.header("Portuguese Language. \n This is the summary of your text.")
-            SumarizeTextPortuguese(uploaded_file, n_sent=10)
+            SumarizeTextPortuguese(uploaded_file, n_sent=5)
 
         if (menu == "English"):
             st.header("English Language. \n \n This is the summary of your text.")
-            SumarizeTextEnglish(uploaded_file, n_sent=10)
+            SumarizeTextEnglish(uploaded_file, n_sent=5)
 
         st.sidebar.title('Hi, everyone!')
         st.sidebar.info('I hope this app is userful for you! \n \
