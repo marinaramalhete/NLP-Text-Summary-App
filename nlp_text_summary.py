@@ -84,7 +84,7 @@ def main():
     st.title('NLP Summary Text')
     st.header('Summary texts in Portuguese or English.')
 
-    uploaded_file  = st.file_uploader('Paste your text!', type = 'txt')
+    uploaded_file  = st.file_uploader('Upload your text!', type = 'txt')
     if uploaded_file is not None:
         # To convert to a string based IO:
         stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
@@ -97,14 +97,14 @@ def main():
 
         # Choices
         if (menu == "Portuguese"):
+            st.write(SumarizeTextPortuguese(uploaded_file), n_sent=5)
             st.header("Portuguese Language")
             st.sidebar.subheader('This is the summary of your text.')
-            SumarizeTextPortuguese(uploaded_file, n_sent=5)
 
         if (menu == "English"):
+            st.write(SumarizeTextEnglish(uploaded_file, n_sent=5))
             st.header("English Language")
             st.sidebar.subheader('This is the summary of your text.')
-            SumarizeTextEnglish(uploaded_file, n_sent=5)
 
         st.sidebar.title('Hi, everyone!')
         st.sidebar.info('I hope this app is userful for you! \n \
