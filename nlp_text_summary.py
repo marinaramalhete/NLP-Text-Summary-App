@@ -93,7 +93,7 @@ def main():
         st.write(stringio)
         # To read file as string:
         uploaded_file = stringio.read()
-        st.write(uploaded_file)
+        # st.write(uploaded_file)
 
         # Sidebar Menu
         options = ["Select language", "Portuguese", "English"]
@@ -103,12 +103,12 @@ def main():
         if (menu == "Portuguese"):
             st.header("Portuguese Language")
             st.sidebar.subheader('This is the summary of your text.')
-            SumarizeTextPortuguese(uploaded_file, n_sent=4)
+            SumarizeTextPortuguese(uploaded_file, n_sent=5)
 
         if (menu == "English"):
             st.header("English Language")
             st.sidebar.subheader('This is the summary of your text.')
-            SumarizeTextEnglish(uploaded_file, n_sent=4)
+            SumarizeTextEnglish(uploaded_file, n_sent=5)
 
         st.sidebar.title('Hi, everyone!')
         st.sidebar.info('I hope this app is userful for you! \n \
