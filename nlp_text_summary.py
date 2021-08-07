@@ -82,12 +82,17 @@ def SumarizeTextEnglish(text, n_sent=4):
 
 def main():
 
-    st.title('NLP Resume Text')
+    st.title('NLP Summary Text')
     st.header('Summary texts in Portuguese or English.')
-    file  = st.file_uploader('Paste your text!', type = 'txt')
 
-    if file is not None:
-        text_for_resume = get_data(file)
+    uploaded_file  = st.file_uploader('Paste your text!', type = 'txt')
+    if uploaded_file is not None:
+        # To convert to a string based IO:
+        stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
+        st.write(stringio)
+        # To read file as string:
+        uploaded_file = stringio.read()
+        st.write(uploaded_file)
 
         # Sidebar Menu
         options = ["Select language", "Portuguese", "English"]
@@ -97,12 +102,12 @@ def main():
         if (menu == "Portuguese"):
             st.header("Portuguese Language")
             st.sidebar.subheader('This is the summary of your text.')
-            SumarizeTextPortuguese(text_for_resume, n_sent=4)
+            SumarizeTextPortuguese(uploaded_file, n_sent=4)
 
         if (menu == "English"):
             st.header("English Language")
             st.sidebar.subheader('This is the summary of your text.')
-            SumarizeTextEnglish(text_for_resume, n_sent=4)
+            SumarizeTextEnglish(uploaded_file, n_sent=4)
 
         st.sidebar.title('Hi, everyone!')
         st.sidebar.info('I hope this app is userful for you! \n \
