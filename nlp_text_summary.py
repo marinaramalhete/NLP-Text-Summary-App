@@ -84,7 +84,7 @@ def main():
     st.title('NLP Summary Text')
     st.header('Summary texts in Portuguese or English.')
 
-    uploaded_file  = st.text_area('Input your text here: ', height = 300)
+    uploaded_file  = st.text_area('Input your text here: ', height = 500)
     if uploaded_file is not None:
     #     # To convert to a string based IO:
     #     stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
@@ -106,10 +106,7 @@ def main():
             n_sent = st.sidebar.slider('Number of sentences (default is 2).', value = 100)
             SumarizeTextEnglish(uploaded_file, n_sent=5)
 
-        st.sidebar.title('Hi, everyone!')
-        st.sidebar.info('I hope this app is userful for you! \n \
-            You find me here: \n \
-            www.linkedin.com/in/marinaramalhete')
+        st.sidebar.title('Check out the project on [Github](https://github.com/marinaramalhete/NLP-Text-Summary-App)')
 
 
 if __name__ == '__main__':
