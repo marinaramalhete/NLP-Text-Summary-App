@@ -99,7 +99,7 @@ def main():
         if (menu == "Portuguese"):
             st.header("Portuguese Language")
             st.sidebar.header('This is the summary of your text.')
-            SumarizeTextPortuguese(uploaded_file), n_sent=5
+            SumarizeTextPortuguese(uploaded_file, n_sent=5)
 
         if (menu == "English"):
             st.header("English Language")
