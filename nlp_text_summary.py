@@ -49,7 +49,7 @@ def SumarizeTextPortuguese(text, n_sent=5):
                                         important_sentences.get)
 
     for i in sorted(idx_important_sentences):
-        print(sentences[i])
+        return st.write(sentences[i])
 
 
 # Functions for resume in English
@@ -76,7 +76,7 @@ def SumarizeTextEnglish(text, n_sent=5):
                                         important_sentences.get)
 
     for i in sorted(idx_important_sentences):
-        print(sentences[i])
+        return st.write(sentences[i])
 
 
 def main():
@@ -97,14 +97,14 @@ def main():
 
         # Choices
         if (menu == "Portuguese"):
-            st.write(SumarizeTextPortuguese(uploaded_file), n_sent=5)
             st.header("Portuguese Language")
-            st.sidebar.subheader('This is the summary of your text.')
+            st.sidebar.header('This is the summary of your text.')
+            SumarizeTextPortuguese(uploaded_file), n_sent=5
 
         if (menu == "English"):
-            st.write(SumarizeTextEnglish(uploaded_file, n_sent=5))
             st.header("English Language")
-            st.sidebar.subheader('This is the summary of your text.')
+            st.sidebar.header('This is the summary of your text.')
+            SumarizeTextEnglish(uploaded_file, n_sent=5)
 
         st.sidebar.title('Hi, everyone!')
         st.sidebar.info('I hope this app is userful for you! \n \
