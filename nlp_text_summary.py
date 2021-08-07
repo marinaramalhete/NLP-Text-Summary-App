@@ -81,10 +81,11 @@ def SumarizeTextEnglish(text, n_sent=2):
 
 def main():
 
-    st.title('NLP Summary Text')
-    st.header('Summary texts in Portuguese or English.')
+    st.title('Summarize texts with NLP :memo:')
+    st.info('Is easy! Enter your text and choose a language and a series of sentences that you consider important for your summary!\
+        The rest is done by natural language processing and statistics! :information_desk_person:')
 
-    uploaded_file  = st.text_area('Input your text here: ', height = 500)
+    uploaded_file  = st.text_area('Enter text to be summarize: :point_down:', height = 500)
     if uploaded_file is not None:
     #     # To convert to a string based IO:
     #     stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
@@ -92,13 +93,13 @@ def main():
     #     uploaded_file = stringio.read()
 
         # Sidebar Menu
-        options = ["Select language", "Portuguese", "English"]
-        menu = st.sidebar.selectbox("Menu options", options)
+        options = ["Portuguese", "English"]
+        menu = st.sidebar.selectbox("Choose a language:", options)
 
         # Choices
         if (menu == "Portuguese"):
             st.header("Portuguese Language. \n This is the summary of your text.")
-            n_sent = st.sidebar.slider('Number of sentences (default is 2).', value = 100)
+            n_sent = st.sidebar.slider('Choose a number of important sentences:', value = 100)
             SumarizeTextPortuguese(uploaded_file, n_sent)
 
         if (menu == "English"):
@@ -106,7 +107,7 @@ def main():
             n_sent = st.sidebar.slider('Number of sentences (default is 2).', value = 100)
             SumarizeTextEnglish(uploaded_file, n_sent=5)
 
-        st.sidebar.title('Check out the project on [Github](https://github.com/marinaramalhete/NLP-Text-Summary-App)')
+        st.sidebar.header('Check out the project on [Github](https://github.com/marinaramalhete/NLP-Text-Summary-App) :octocat:')
 
 
 if __name__ == '__main__':
