@@ -32,7 +32,7 @@ def RemoveStopWordsAndPunctInPortuguese(text):
     words = word_tokenize(text.lower())
     return [word for word in words if word not in stopwords_ptbr]
 
-def SumarizeTextPortuguese(text, n_sent=5):
+def SumarizeTextPortuguese(text, n_sent=10):
     words_not_stopwords = RemoveStopWordsAndPunctInPortuguese(text)
     sentences = sent_tokenize(text)
     frequency = FreqDist(words_not_stopwords)
@@ -59,7 +59,7 @@ def RemoveStopWordsAndPunctInEnglish(text):
     words = word_tokenize(text.lower())
     return [word for word in words if word not in stopwords_en]
 
-def SumarizeTextEnglish(text, n_sent=5):
+def SumarizeTextEnglish(text, n_sent=10):
     words_not_stopwords = RemoveStopWordsAndPunctInEnglish(text)
     sentences = sent_tokenize(text)
     frequency = FreqDist(words_not_stopwords)
@@ -84,7 +84,7 @@ def main():
     st.title('NLP Summary Text')
     st.header('Summary texts in Portuguese or English.')
 
-    uploaded_file  = st.file_uploader('Upload your text!', type = 'txt')
+    uploaded_file  = st.file_uploader('Upload your text!')
     if uploaded_file is not None:
         # To convert to a string based IO:
         stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
@@ -97,14 +97,12 @@ def main():
 
         # Choices
         if (menu == "Portuguese"):
-            st.header("Portuguese Language")
-            st.sidebar.header('This is the summary of your text.')
-            SumarizeTextPortuguese(uploaded_file, n_sent=5)
+            st.header("Portuguese Language. \n This is the summary of your text.")
+            SumarizeTextPortuguese(uploaded_file, n_sent=10)
 
         if (menu == "English"):
-            st.header("English Language")
-            st.sidebar.header('This is the summary of your text.')
-            SumarizeTextEnglish(uploaded_file, n_sent=5)
+            st.header("English Language. \n \n This is the summary of your text.")
+            SumarizeTextEnglish(uploaded_file, n_sent=10)
 
         st.sidebar.title('Hi, everyone!')
         st.sidebar.info('I hope this app is userful for you! \n \
