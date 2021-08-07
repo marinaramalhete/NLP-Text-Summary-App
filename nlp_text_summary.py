@@ -81,7 +81,7 @@ def SumarizeTextEnglish(text, n_sent=2):
 
 def main():
 
-    st.title('Summarize texts with NLP :hugging_face::')
+    st.title('Summarize texts with NLP :hugging_face:')
     st.info('Is easy! Enter your text and choose a language and a series of sentences that you consider important for your summary!\
         The rest is done by natural language processing and statistics!')
 
@@ -93,21 +93,21 @@ def main():
     #     uploaded_file = stringio.read()
 
         # Sidebar Menu
-        options = ["Language", "Portuguese", "English"]
+        options = ["Portuguese", "English"]
         menu = st.sidebar.selectbox("Choose a language:", options)
 
         # Choices
         if (menu == "Portuguese"):
-            st.title("This is the summary of your text. :unlock:")
-            n_sent = st.sidebar.slider('Choose a number of important sentences:', value = 100)
+            st.title("This is the summary of your text :unlock:")
+            n_sent = st.sidebar.slider('Choose a number of important sentences:', value = 50)
             SumarizeTextPortuguese(uploaded_file, n_sent)
 
         if (menu == "English"):
             st.header("English Language. \n \n This is the summary of your text.")
-            n_sent = st.sidebar.slider('Number of sentences (default is 2).', value = 100)
+            n_sent = st.sidebar.slider('Number of sentences (default is 2).', value = 50)
             SumarizeTextEnglish(uploaded_file, n_sent=5)
 
-        st.sidebar.header('Check out the project on [Github](https://github.com/marinaramalhete/NLP-Text-Summary-App)')
+        st.sidebar('Check out the project on [Github](https://github.com/marinaramalhete/NLP-Text-Summary-App)')
 
 
 if __name__ == '__main__':
