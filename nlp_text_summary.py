@@ -9,6 +9,7 @@ from nltk.corpus import stopwords
 from nltk.probability import FreqDist
 from nltk.tokenize import sent_tokenize, word_tokenize
 
+
 # If you have problems in install nltk, try the options:
 # import nltk
 # nltk.download('stopwords')
@@ -23,9 +24,6 @@ from nltk.tokenize import sent_tokenize, word_tokenize
 #     ssl._create_default_https_context = _create_unverified_https_context
 # nltk.download()
 
-# Function for get data
-def get_data(file):
-    return (file)
 
 # Functions for resume in Portuguese
 stopwords_ptbr = set(stopwords.words('portuguese') + list(punctuation))
@@ -34,7 +32,7 @@ def RemoveStopWordsAndPunctInPortuguese(text):
     words = word_tokenize(text.lower())
     return [word for word in words if word not in stopwords_ptbr]
 
-def SumarizeTextPortuguese(text, n_sent=4):
+def SumarizeTextPortuguese(text, n_sent=5):
     words_not_stopwords = RemoveStopWordsAndPunctInPortuguese(text)
     sentences = sent_tokenize(text)
     frequency = FreqDist(words_not_stopwords)
@@ -51,7 +49,7 @@ def SumarizeTextPortuguese(text, n_sent=4):
                                         important_sentences.get)
 
     for i in sorted(idx_important_sentences):
-        return(sentences[i])
+        print(sentences[i])
 
 
 # Functions for resume in English
@@ -61,7 +59,7 @@ def RemoveStopWordsAndPunctInEnglish(text):
     words = word_tokenize(text.lower())
     return [word for word in words if word not in stopwords_en]
 
-def SumarizeTextEnglish(text, n_sent=4):
+def SumarizeTextEnglish(text, n_sent=5):
     words_not_stopwords = RemoveStopWordsAndPunctInEnglish(text)
     sentences = sent_tokenize(text)
     frequency = FreqDist(words_not_stopwords)
@@ -78,7 +76,7 @@ def SumarizeTextEnglish(text, n_sent=4):
                                         important_sentences.get)
 
     for i in sorted(idx_important_sentences):
-        return(sentences[i])
+        print(sentences[i])
 
 
 def main():
@@ -90,10 +88,8 @@ def main():
     if uploaded_file is not None:
         # To convert to a string based IO:
         stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
-        st.write(stringio)
         # To read file as string:
         uploaded_file = stringio.read()
-        # st.write(uploaded_file)
 
         # Sidebar Menu
         options = ["Select language", "Portuguese", "English"]
