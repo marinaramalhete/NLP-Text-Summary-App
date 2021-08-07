@@ -30,7 +30,7 @@ stopwords_ptbr = set(stopwords.words('portuguese') + list(punctuation))
 
 def RemoveStopWordsAndPunctInPortuguese(text):
     words = word_tokenize(text.lower())
-    return [word for word in words if word not in stopwords_ptbr]
+    return st.write([word for word in words if word not in stopwords_ptbr])
 
 def SumarizeTextPortuguese(text, n_sent=10):
     words_not_stopwords = RemoveStopWordsAndPunctInPortuguese(text)
@@ -49,7 +49,7 @@ def SumarizeTextPortuguese(text, n_sent=10):
                                         important_sentences.get)
 
     for i in sorted(idx_important_sentences):
-        return st.write(sentences[i])
+        st.write(sentences[i])
 
 
 # Functions for resume in English
@@ -57,7 +57,7 @@ stopwords_en = set(stopwords.words('english') + list(punctuation))
 
 def RemoveStopWordsAndPunctInEnglish(text):
     words = word_tokenize(text.lower())
-    return [word for word in words if word not in stopwords_en]
+    return st.write([word for word in words if word not in stopwords_en])
 
 def SumarizeTextEnglish(text, n_sent=10):
     words_not_stopwords = RemoveStopWordsAndPunctInEnglish(text)
