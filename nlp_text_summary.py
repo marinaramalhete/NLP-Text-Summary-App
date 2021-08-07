@@ -84,7 +84,7 @@ def main():
     st.title('NLP Summary Text')
     st.header('Summary texts in Portuguese or English.')
 
-    uploaded_file  = st.text_area('Input your text here: ', height = 50)
+    uploaded_file  = st.text_area('Input your text here: ', height = 300)
     if uploaded_file is not None:
     #     # To convert to a string based IO:
     #     stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
