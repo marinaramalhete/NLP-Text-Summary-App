@@ -8,6 +8,7 @@ import streamlit as st
 from nltk.corpus import stopwords
 from nltk.probability import FreqDist
 from nltk.tokenize import sent_tokenize, word_tokenize
+from nltk.stem import PorterStemmer
 
 
 # If you have problems in install nltk, try the options:
@@ -28,12 +29,12 @@ from nltk.tokenize import sent_tokenize, word_tokenize
 # Functions for resume in Portuguese
 stopwords_ptbr = set(stopwords.words('portuguese') + list(punctuation))
 
-def RemoveStopWordsAndPunctInPortuguese(text):
+def remove_stopwords_and_punct_in_portuguese(text):
     words = word_tokenize(text.lower())
     return [word for word in words if word not in stopwords_ptbr]
 
-def SumarizeTextPortuguese(text, n_sent=2):
-    words_not_stopwords = RemoveStopWordsAndPunctInPortuguese(text)
+def sumarize_text_portuguese(text, n_sent=2):
+    words_not_stopwords = remove_stopwords_and_punct_in_portuguese(text)
     sentences = sent_tokenize(text)
     frequency = FreqDist(words_not_stopwords)
     important_sentences = defaultdict(int)
@@ -55,12 +56,12 @@ def SumarizeTextPortuguese(text, n_sent=2):
 # Functions for resume in English
 stopwords_en = set(stopwords.words('english') + list(punctuation))
 
-def RemoveStopWordsAndPunctInEnglish(text):
+def remove_stopwords_and_punct_in_english(text):
     words = word_tokenize(text.lower())
     return [word for word in words if word not in stopwords_en]
 
-def SumarizeTextEnglish(text, n_sent=2):
-    words_not_stopwords = RemoveStopWordsAndPunctInEnglish(text)
+def sumarize_text_english(text, n_sent=2):
+    words_not_stopwords = remove_stopwords_and_punct_in_english(text)
     sentences = sent_tokenize(text)
     frequency = FreqDist(words_not_stopwords)
     important_sentences = defaultdict(int)
@@ -100,12 +101,12 @@ def main():
         if (menu == "Portuguese"):
             st.title("This is the summary of your text :unlock:")
             n_sent = st.sidebar.slider('Choose a number of important sentences:', value = 50)
-            SumarizeTextPortuguese(uploaded_file, n_sent)
+            sumarize_text_portuguese(uploaded_file, n_sent)
 
         if (menu == "English"):
             st.header("English Language. \n \n This is the summary of your text.")
             n_sent = st.sidebar.slider('Number of sentences (default is 2).', value = 50)
-            SumarizeTextEnglish(uploaded_file, n_sent=5)
+            sumarize_text_english(uploaded_file, n_sent=5)
 
         st.sidebar.info('Check out the project on [Github](https://github.com/marinaramalhete/NLP-Text-Summary-App)')
 
