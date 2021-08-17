@@ -87,11 +87,13 @@ def main():
         The rest is done by natural language processing and statistics!')
 
     uploaded_file  = st.text_area('Enter text to be summarize:', height = 350)
-    if uploaded_file is not None:
-    #     # To convert to a string based IO:
-    #     stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
-    #     # To read file as string:
-    #     uploaded_file = stringio.read()
+    if st.button('Summarize'):
+        if uploaded_file == '':
+            st.error('Please enter some text')
+        #     # To convert to a string based IO:
+        #     stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
+        #     # To read file as string:
+        #     uploaded_file = stringio.read()
 
         # Sidebar Menu
         options = ["Portuguese", "English"]
