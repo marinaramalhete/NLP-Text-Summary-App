@@ -88,16 +88,16 @@ def main():
 
     uploaded_file  = st.text_area('Enter text to be summarize:', height = 350)
     if st.button('Summarize'):
+        # Sidebar Menu
+        options = ["Portuguese", "English"]
+        menu = st.sidebar.selectbox("Choose a language:", options)
+
         if uploaded_file == '':
             st.error('Please enter some text')
         #     # To convert to a string based IO:
         #     stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
         #     # To read file as string:
         #     uploaded_file = stringio.read()
-
-        # Sidebar Menu
-        options = ["Portuguese", "English"]
-        menu = st.sidebar.selectbox("Choose a language:", options)
 
         # Choices
         if (menu == "Portuguese"):
