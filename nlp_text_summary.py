@@ -82,16 +82,18 @@ def sumarize_text_english(text, n_sent=2):
 
 def main():
 
-    st.title('Summarize texts with NLP :hugging_face:')
-    st.info('Is easy! Enter your text and choose a language and a series of sentences that you consider important for your summary!\
-        The rest is done by natural language processing and statistics!')
+    st.markdown("<h1 style='text-align: center; color: white;'>Summarize texts with NLP :hugging_face:</h1>", unsafe_allow_html=True)
+    st.markdown("<h4 style='text-align: center; color:grey;'>Is easy! Enter your text and choose a language and a series of sentences that you consider important for your summary!\
+        The rest is done by natural language processing and statistics!</h4>", unsafe_allow_html=True)
+    st.write('')
 
     uploaded_file  = st.text_area('Enter text to be summarize:', height = 350)
-    if st.button('Summarize'):
-        # Sidebar Menu
-        options = ["Portuguese", "English"]
-        menu = st.sidebar.selectbox("Choose a language:", options)
 
+    # Sidebar Menu
+    options = ["Portuguese", "English"]
+    menu = st.sidebar.selectbox("Choose a language:", options)
+
+    if st.button('Summarize'):
         if uploaded_file == '':
             st.error('Please enter some text')
         #     # To convert to a string based IO:
