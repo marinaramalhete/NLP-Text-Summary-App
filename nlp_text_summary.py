@@ -88,29 +88,29 @@ def main():
     st.write('')
 
     uploaded_file  = st.text_area('Enter text to be summarize:', height = 350)
-
-    # Sidebar Menu
-    options = ["Portuguese", "English"]
-    menu = st.sidebar.selectbox("Choose a language:", options)
-
-    if st.button('Summarize'):
-        if uploaded_file == '':
-            st.error('Please enter some text')
+    if uploaded_file is not None:
         #     # To convert to a string based IO:
         #     stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
         #     # To read file as string:
         #     uploaded_file = stringio.read()
 
-        # Choices
-        if (menu == "Portuguese"):
-            st.title("This is the summary of your text :unlock:")
-            n_sent = st.sidebar.slider('Choose a number of important sentences:', value = 50)
-            sumarize_text_portuguese(uploaded_file, n_sent)
+        # Sidebar Menu
+        options = ["Portuguese", "English"]
+        menu = st.sidebar.selectbox("Choose a language:", options)
 
-        if (menu == "English"):
-            st.header("English Language. \n \n This is the summary of your text.")
-            n_sent = st.sidebar.slider('Number of sentences (default is 2).', value = 50)
-            sumarize_text_english(uploaded_file, n_sent=5)
+        if st.button('Summarize'):
+            st.success(
+                # Choices
+                if (menu == "Portuguese"):
+                    st.title("This is the summary of your text :unlock:")
+                    n_sent = st.sidebar.slider('Choose a number of important sentences:', value = 50)
+                    sumarize_text_portuguese(uploaded_file, n_sent)
+
+                if (menu == "English"):
+                    st.header("English Language. \n \n This is the summary of your text.")
+                    n_sent = st.sidebar.slider('Number of sentences (default is 2).', value = 50)
+                    sumarize_text_english(uploaded_file, n_sent=5)
+            )
 
         st.sidebar.info('Check out the project on [Github](https://github.com/marinaramalhete/NLP-Text-Summary-App)')
 
