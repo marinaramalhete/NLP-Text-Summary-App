@@ -82,35 +82,32 @@ def sumarize_text_english(text, n_sent=2):
 
 def main():
 
-    st.markdown("<h1 style='text-align: center; color: white;'>Summarize texts with NLP :hugging_face:</h1>", unsafe_allow_html=True)
+    st.title('Summarize texts with NLP :hugging_face:')
     st.markdown("<h4 style='text-align: center; color:grey;'>Is easy! Enter your text and choose a language and a series of sentences that you consider important for your summary!\
         The rest is done by natural language processing and statistics!</h4>", unsafe_allow_html=True)
     st.write('')
 
     uploaded_file  = st.text_area('Enter text to be summarize:', height = 350)
     if uploaded_file is not None:
-        #     # To convert to a string based IO:
-        #     stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
-        #     # To read file as string:
-        #     uploaded_file = stringio.read()
+    #     # To convert to a string based IO:
+    #     stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
+    #     # To read file as string:
+    #     uploaded_file = stringio.read()
 
         # Sidebar Menu
         options = ["Portuguese", "English"]
         menu = st.sidebar.selectbox("Choose a language:", options)
 
-        if st.button('Summarize'):
-            st.success(
-                # Choices
-                if (menu == "Portuguese"):
-                    st.title("This is the summary of your text :unlock:")
-                    n_sent = st.sidebar.slider('Choose a number of important sentences:', value = 50)
-                    sumarize_text_portuguese(uploaded_file, n_sent)
+        # Choices
+        if (menu == "Portuguese"):
+            st.title("This is the summary of your text :unlock:")
+            n_sent = st.sidebar.slider('Choose a number of important sentences:', value = 50)
+            sumarize_text_portuguese(uploaded_file, n_sent)
 
-                if (menu == "English"):
-                    st.header("English Language. \n \n This is the summary of your text.")
-                    n_sent = st.sidebar.slider('Number of sentences (default is 2).', value = 50)
-                    sumarize_text_english(uploaded_file, n_sent=5)
-            )
+        if (menu == "English"):
+            st.header("English Language. \n \n This is the summary of your text.")
+            n_sent = st.sidebar.slider('Number of sentences (default is 2).', value = 50)
+            sumarize_text_english(uploaded_file, n_sent=5)
 
         st.sidebar.info('Check out the project on [Github](https://github.com/marinaramalhete/NLP-Text-Summary-App)')
 
