@@ -92,13 +92,14 @@ def main():
     uploaded_file = st.text_area('Type or paste here:',
                                  'Processamento de linguagem natural (NLP, em inglês) é uma subárea da ciência da\
                                   computação, inteligência artificial e da linguística que estuda os problemas da\
-                                  geração e compreensão automática de lingua humanas naturais. Sistemas de geração\
+                                  geração e compreensão automática de linguas humanas naturais. Sistemas de geração\
                                   de linguagem natural convertem informação de bancos de dados de computadores em\
                                   linguagem compreensível ao ser humano e sistemas de compreensão de linguagem natural\
                                   convertem ocorrências de linguagem humana em representações mais formais, mais\
                                   facilmente manipuláveis por programas de computador. Alguns desafios do NLP são\
                                   compreensão de linguagem natural, fazer com que computadores extraiam sentido de\
                                   linguagem humana ou natural e geração de linguagem natural.', height=300)
+
     if uploaded_file is not None:
         # # To convert to a string based IO:
         # stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
