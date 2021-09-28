@@ -8,7 +8,6 @@ import streamlit as st
 from nltk.corpus import stopwords
 from nltk.probability import FreqDist
 from nltk.tokenize import sent_tokenize, word_tokenize
-# from nltk.stem import PorterStemmer
 
 # If you have problems in install nltk, try the options:
 # import nltk
@@ -101,9 +100,9 @@ def main():
                                   linguagem humana ou natural e geração de linguagem natural.', height=300)
 
     if uploaded_file is not None:
-        # # To convert to a string based IO:
+        # To convert to a string based IO:
         # stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
-        # # To read file as string:
+        # To read file as string:
         # uploaded_file = stringio.read()
 
         # Sidebar Menu
