@@ -7,6 +7,7 @@ from string import punctuation
 # If you have problems in install nltk, try the options:
 import nltk
 nltk.download('stopwords')
+nltk.download('punkt')
 import streamlit as st
 from nltk.corpus import stopwords
 from nltk.probability import FreqDist
