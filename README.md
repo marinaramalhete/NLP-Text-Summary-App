@@ -1,5 +1,7 @@
 # Text summary with NLP in portuguese and english
 
+Medium -> https://medium.com/@marinaramalhete/resumindo-textos-com-nlp-f9fb50a0e027
+
 # Getting Started
 Here is some information to help you get started. This application is still in development and many other features can be added and improved!
 
