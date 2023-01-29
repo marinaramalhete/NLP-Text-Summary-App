@@ -4,14 +4,13 @@ from heapq import nlargest
 # from io import StringIO
 from string import punctuation
 
+# If you have problems in install nltk, try the options:
+import nltk
+nltk.download('stopwords')
 import streamlit as st
 from nltk.corpus import stopwords
 from nltk.probability import FreqDist
 from nltk.tokenize import sent_tokenize, word_tokenize
-
-# If you have problems in install nltk, try the options:
-# import nltk
-# nltk.download('stopwords')
 
 # import nltk
 # import ssl
