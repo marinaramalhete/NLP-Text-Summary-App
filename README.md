@@ -26,11 +26,10 @@ streamlit run nlp_text_summary.py
 # Deployment
 You can create your own app on Heroku platform. Follow [this](https://devcenter.heroku.com/)
 
-You can access the app [here](http://text-summary-nlp.herokuapp.com/)
+You can access the app [here](https://marinaramalhete-nlp-text-summary-app-nlp-text-summary-ohuns8.streamlit.app/)
 
 # Built With
-[Streamlit](https://docs.streamlit.io/index.html) - The web framework
-[Heroku](https://dashboard.heroku.com/) - App host
+[Streamlit](https://docs.streamlit.io/index.html) - The web framework and App host
 
 # Author
 Marina Ramalhete de Souza - [Linkedin](https://www.linkedin.com/in/marinaramalhete/) [Github](https://github.com/marinaramalhete)
